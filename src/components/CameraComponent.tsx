@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import Webcam from "react-webcam";
 import { Button } from "./ui/button";
 
@@ -15,6 +15,8 @@ const CameraComponent = ({
   handleAnalyzeImage: () => void;
 }) => {
   const webcamRef = useRef(null);
+
+  const [tempLoading, setTempLoading] = useState(false);
 
   const videoConstraints = {
     facingMode: "user",
@@ -63,11 +65,18 @@ const CameraComponent = ({
         {img && (
           <div className="flex justify-center w-full items-center gap-4">
             <Button
-              onClick={handleAnalyzeImage}
+              onClick={() => {
+                setTempLoading((prev) => !prev);
+                handleAnalyzeImage();
+              }}
               size="lg"
               className="text-lg w-70 h-12"
+              disabled={tempLoading}
             >
-              Analyze Image
+              {tempLoading ? "Analyzing..." : "Analyze Image"}
+              {tempLoading && (
+                <div className="w-7 h-7 border-4 border-t-gray-600 border-gray-300 rounded-full animate-spin ml-4"></div>
+              )}
             </Button>
 
             <Button
@@ -75,8 +84,9 @@ const CameraComponent = ({
               variant="secondary"
               className="text-lg w-70 h-12"
               size="lg"
+              disabled={tempLoading}
             >
-              Upload Another Image
+              Take Another Photo
             </Button>
           </div>
         )}

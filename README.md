@@ -6,14 +6,14 @@
 - **Image Recognition**: Mock function (tried to use google vision API, but it needs a billing account to be setup.
   Tried some other free API called Imagga, but did not recognize objects correctly.)
 
-This project is built completely in `Next.js 15`. The src folder contains all the relevant code structured properly
+This project is built completely in `Next.js 15`. The `src` folder contains all the relevant code structured properly
 under different folders. The `app/components` folder and `page.tsx` files represent the frontend code and backend code
 resides under the `app/api` folder. The `constants.ts` file under `app/lib` foler contains all the mock data and
 assumptions I have used for the application. For image recognition, I was not able to find any free and reliable APIs so
-I have used a mock funtion that, from an array or arrays of clothing items, it randomly chooses any one array element to
-display information about clothing items. I tried using an image recognition API but it was not recognizing appropriate
-clothing items; you can check the commented out code under `app/api/analyze.route.ts` where I tried to do that. You can
-also find the array for carbon score estimation as well as mock offers in the `constants.ts` file.
+I have used a mock funtion that, from an array of arrays of clothing items, randomly chooses any one array to display
+information about clothing items. I tried using an image recognition API but it was not recognizing appropriate clothing
+items; you can check the commented out code under `app/api/analyze.route.ts` where I tried to do that. You can also find
+the array for carbon score estimation as well as mock offers in the `constants.ts` file.
 
 The `app/api` folder contains three folders, each with their `route.ts` file which corresponds to the three API
 endpoints required.
@@ -43,7 +43,7 @@ page, I am accessing that information to fetch results for total carbon score, e
 1. First, clone the github repository into your workspace folder and then go into that folder.
 
 ```bash
-git clone [REPO_URL]
+git clone https://github.com/parthgod/ecoscan.git
 cd ecoscan
 ```
 
@@ -135,6 +135,8 @@ type. These scores are stored in an in-memory dictionary for quick access.
 ## 📲 Deployment
 
 Below is the deployed URL of the application. I have used `Vercel` for this purpose.
+
+[https://ecoscan-reewild.vercel.app](https://ecoscan-reewild.vercel.app)
 
 ## 📽️ Video
 

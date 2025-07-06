@@ -4,6 +4,7 @@ import { FileUpload } from "@/components/ui/file-upload";
 import { convertFileToBase64 } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { useState } from "react";
 
 const FileUploader = ({
   handleAnalyzeImage,
@@ -14,6 +15,8 @@ const FileUploader = ({
   setImg: (img: string | null) => void;
   img: string | null;
 }) => {
+  const [tempLoading, setTempLoading] = useState(false);
+
   const handleFileUpload = async (files: File[]) => {
     const image = await convertFileToBase64(files[0]);
     setImg(image);
@@ -33,11 +36,18 @@ const FileUploader = ({
           />
           <div className="flex justify-center w-full items-center gap-4">
             <Button
-              onClick={handleAnalyzeImage}
+              onClick={() => {
+                setTempLoading((prev) => !prev);
+                handleAnalyzeImage();
+              }}
               size="lg"
               className="text-lg w-70 h-12"
+              disabled={tempLoading}
             >
-              Analyze Image
+              {tempLoading ? "Analyzing..." : "Analyze Image"}
+              {tempLoading && (
+                <div className="w-7 h-7 border-4 border-t-gray-600 border-gray-300 rounded-full animate-spin ml-4"></div>
+              )}
             </Button>
 
             <Button
@@ -45,6 +55,7 @@ const FileUploader = ({
               variant="secondary"
               className="text-lg w-70 h-12"
               size="lg"
+              disabled={tempLoading}
             >
               Upload Another Image
             </Button>

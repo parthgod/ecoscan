@@ -1,13 +1,12 @@
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { OFFERS } from "@/lib/constants";
 import Image from "next/image";
@@ -42,37 +41,37 @@ const DisplayOffers = ({ offers }: { offers: typeof OFFERS }) => {
               <p>{offer.offerMessage}</p>
             </CardContent>
             <CardFooter className="flex justify-between items-center">
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
+              <Dialog>
+                <DialogTrigger asChild>
                   <Button
                     size="lg"
                     className="bg-emerald-500 text-lg hover:bg-emerald-600 active:scale-90 w-50"
                   >
                     Claim now
                   </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle className="text-center">Offer claimed</AlertDialogTitle>
-                    <AlertDialogDescription>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle className="text-center">Offer claimed</DialogTitle>
+                    <DialogDescription>
                       Congratulations! You have successfully claimed the offer from {offer.brandName} which costs{" "}
                       {offer.pointsRequired} points. Your eco-rewards will be deducted accordingly. The offer is valid
                       till {offer.validTill}. An email will be sent to you with a unique coupon code to redeem. Enjoy
                       your shopping!
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogAction className="w-full">
+                    </DialogDescription>
+                  </DialogHeader>
+                  <DialogFooter>
+                    <Button className="w-full">
                       <Link
                         href="/"
                         className="w-full"
                       >
                         Continue to home
                       </Link>
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
 
               <p className="flex gap-2 text-3xl items-center text-yellow-600">
                 {offer.pointsRequired} <FaCoins />
