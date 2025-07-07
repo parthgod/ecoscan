@@ -7,7 +7,6 @@ export const POST = async (request: NextRequest) => {
     if (!carbonFootprint || carbonFootprint.length === 0)
       return NextResponse.json({ success: false, error: "No carbon footprint data provided" }, { status: 400 });
 
-    // Calculate total carbon footprint
     let totalCarbonFootprint = 0;
     let totalEcoRewards = 0;
 

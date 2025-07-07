@@ -4,7 +4,6 @@ const HeroSection = () => {
   return (
     <div className="flex justify-between items-center h-[60vh] w-full bg-green-100 overflow-hidden">
       <div className="h-[60vh] w-[50%] gap-10 flex flex-col justify-center items-start px-20">
-        {/* <p className="text-8xl text-green-700 font-bold animate-slidedown">EcoScan</p> */}
         <Image
           src="/logo.png"
           alt="EcoScan Logo"

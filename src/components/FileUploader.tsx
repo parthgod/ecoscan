@@ -3,8 +3,8 @@
 import { FileUpload } from "@/components/ui/file-upload";
 import { convertFileToBase64 } from "@/lib/utils";
 import Image from "next/image";
-import { Button } from "./ui/button";
 import { useState } from "react";
+import { Button } from "./ui/button";
 
 const FileUploader = ({
   handleAnalyzeImage,

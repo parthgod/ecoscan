@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import CameraCaptureModal from "./CameraCaptureModal";
-import FileUploadModal from "./FileUploadModal";
 import { useClothes } from "@/context/ClothesContext";
 import axios from "axios";
-import { toast } from "sonner";
-import { MultiStepLoader } from "./ui/multi-step-loader";
 import { useRouter } from "nextjs-toploader/app";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import CameraCaptureModal from "./CameraCaptureModal";
+import FileUploadModal from "./FileUploadModal";
+import { MultiStepLoader } from "./ui/multi-step-loader";
 
 const ImageAcceptorSection = () => {
   const [loading, setLoading] = useState(false);

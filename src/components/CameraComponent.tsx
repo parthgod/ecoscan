@@ -42,8 +42,6 @@ const CameraComponent = ({
         <Webcam
           audio={false}
           mirrored={true}
-          //   height={600}
-          // width={700}
           ref={webcamRef}
           screenshotFormat="image/png"
           videoConstraints={videoConstraints}
